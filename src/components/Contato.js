@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Contato() {
+function Contato({ abrirModal }) {
   return (
     <section id="contato" className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -47,10 +47,13 @@ function Contato() {
           <div className="bg-yellow-50 p-8 rounded-lg text-center">
             <h3 className="text-xl font-bold text-blue-800 mb-4">Quer se tornar um radioamador?</h3>
             <p className="text-gray-700 mb-6">
-              Entre em contato conosco para saber mais sobre como obter sua licença e fazer parte 
+              Entre em contato conosco para saber mais sobre como obter sua licença e fazer parte
               da nossa comunidade!
             </p>
-            <button className="bg-blue-600 text-yellow-300 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+            <button
+              onClick={abrirModal}
+              className="bg-blue-600 text-yellow-300 px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+            >
               Fale Conosco
             </button>
           </div>

@@ -10,18 +10,18 @@ import ModalAssociacao from './components/ModalAssociacao';
 function App() {
   const [modalAberto, setModalAberto] = useState(false);
 
+  const abrirModal = () => setModalAberto(true);
+  const fecharModal = () => setModalAberto(false);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <Hero abrirModal={() => setModalAberto(true)} />
+      <Hero abrirModal={abrirModal} />
       <Sobre />
       <Atividades />
-      <Contato />
+      <Contato abrirModal={abrirModal} />
       <Footer />
-      <ModalAssociacao 
-        aberto={modalAberto} 
-        fechar={() => setModalAberto(false)} 
-      />
+      <ModalAssociacao aberto={modalAberto} fechar={fecharModal} />
     </div>
   );
 }

@@ -7,62 +7,34 @@ function Header() {
     <header className="bg-blue-800 text-yellow-300 shadow-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* LOGO + TEXTO */}
           <div className="flex items-center space-x-4">
-            {/* usa logo.png da pasta public */}
-            <img
-              src="/logo3.png"
-              alt="Logo ARCAM"
-              className="h-14 w-auto"
-            />
+            <div className="w-16 h-16 bg-yellow-300 rounded-full flex items-center justify-center">
+              <i className="fas fa-broadcast-tower text-blue-800 text-2xl"></i>
+            </div>
             <div>
               <h1 className="text-2xl font-bold">ARCAM</h1>
-              <p className="text-sm text-yellow-100">
-                Associação de Rádio Amador de Campos dos Goytacazes
-              </p>
+              <p className="text-sm text-yellow-100">Associação de Rádio Amador de Campos dos Goytacazes</p>
             </div>
           </div>
-
-          {/* BOTÃO MENU MOBILE */}
-          <button
+          <button 
             onClick={() => setMenuAberto(!menuAberto)}
             className="md:hidden text-yellow-300"
           >
             <i className={`fas ${menuAberto ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
           </button>
-
-          {/* MENU DESKTOP */}
           <nav className="hidden md:flex space-x-6">
-            <a href="#inicio" className="hover:text-yellow-500 transition">
-              Início
-            </a>
-            <a href="#sobre" className="hover:text-yellow-500 transition">
-              Sobre
-            </a>
-            <a href="#atividades" className="hover:text-yellow-500 transition">
-              Atividades
-            </a>
-            <a href="#contato" className="hover:text-yellow-500 transition">
-              Contato
-            </a>
+            <a href="#inicio" className="hover:text-yellow-500 transition">Início</a>
+            <a href="#sobre" className="hover:text-yellow-500 transition">Sobre</a>
+            <a href="#atividades" className="hover:text-yellow-500 transition">Atividades</a>
+            <a href="#contato" className="hover:text-yellow-500 transition">Contato</a>
           </nav>
         </div>
-
-        {/* MENU MOBILE ABERTO */}
         {menuAberto && (
           <nav className="md:hidden mt-4 flex flex-col space-y-2">
-            <a href="#inicio" className="hover:text-yellow-500 transition py-2">
-              Início
-            </a>
-            <a href="#sobre" className="hover:text-yellow-500 transition py-2">
-              Sobre
-            </a>
-            <a href="#atividades" className="hover:text-yellow-500 transition py-2">
-              Atividades
-            </a>
-            <a href="#contato" className="hover:text-yellow-500 transition py-2">
-              Contato
-            </a>
+            <a href="#inicio" className="hover:text-yellow-500 transition py-2">Início</a>
+            <a href="#sobre" className="hover:text-yellow-500 transition py-2">Sobre</a>
+            <a href="#atividades" className="hover:text-yellow-500 transition py-2">Atividades</a>
+            <a href="#contato" className="hover:text-yellow-500 transition py-2">Contato</a>
           </nav>
         )}
       </div>
