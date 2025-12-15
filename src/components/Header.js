@@ -8,9 +8,11 @@ function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 bg-yellow-300 rounded-full flex items-center justify-center">
-              <i className="fas fa-broadcast-tower text-blue-800 text-2xl"></i>
-            </div>
+            <img
+              src="/logo3.png"
+              alt="Logo ARCAM"
+              className="h-16 w-auto object-contain"
+            />
             <div>
               <h1 className="text-2xl font-bold">ARCAM</h1>
               <p className="text-sm text-yellow-100">Associação de Rádio Amador de Campos dos Goytacazes</p>
