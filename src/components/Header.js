@@ -4,7 +4,7 @@ function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
 
   return (
-    <header className="bg-blue-800 text-yellow-300 shadow-lg">
+    <header className="bg-blue-800 text-yellow-300 shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
