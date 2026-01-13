@@ -14,7 +14,7 @@ function App() {
   const fecharModal = () => setModalAberto(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-24">
       <Header />
       <Hero abrirModal={abrirModal} />
       <Sobre />

@@ -9,7 +9,7 @@ function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img
-              src="/logo3.png"
+              src={process.env.PUBLIC_URL + '/logoarcam.png'}
               alt="Logo ARCAM"
               className="h-16 w-auto object-contain"
             />
@@ -25,7 +25,12 @@ function Header() {
             <i className={`fas ${menuAberto ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
           </button>
           <nav className="hidden md:flex space-x-6">
-            <a href="#inicio" className="hover:text-yellow-500 transition">Início</a>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="hover:text-yellow-500 transition"
+            >
+              Início
+            </button>
             <a href="#sobre" className="hover:text-yellow-500 transition">Sobre</a>
             <a href="#atividades" className="hover:text-yellow-500 transition">Atividades</a>
             <a href="#contato" className="hover:text-yellow-500 transition">Contato</a>
@@ -33,7 +38,15 @@ function Header() {
         </div>
         {menuAberto && (
           <nav className="md:hidden mt-4 flex flex-col space-y-2">
-            <a href="#inicio" className="hover:text-yellow-500 transition py-2">Início</a>
+            <button
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setMenuAberto(false);
+              }}
+              className="hover:text-yellow-500 transition py-2 text-left"
+            >
+              Início
+            </button>
             <a href="#sobre" className="hover:text-yellow-500 transition py-2">Sobre</a>
             <a href="#atividades" className="hover:text-yellow-500 transition py-2">Atividades</a>
             <a href="#contato" className="hover:text-yellow-500 transition py-2">Contato</a>

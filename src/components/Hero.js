@@ -11,15 +11,15 @@ function Hero({ abrirModal }) {
   const [imagens, setImagens] = useState([]);
 
   useEffect(() => {
-    // Busca um arquivo de configuração opcional em public/carousel/config.json
-    // Se não existir, usa nomes padrão foto1.jpg, foto2.jpg, foto3.jpg...
     const carregarImagens = async () => {
       try {
-        const resp = await fetch('/carousel/config.json?_=' + Date.now());
+        const resp = await fetch(process.env.PUBLIC_URL + '/carousel/config.json?_=' + Date.now());
         if (resp.ok) {
           const data = await resp.json();
           if (Array.isArray(data) && data.length > 0) {
-            setImagens(data);
+            // Adiciona PUBLIC_URL aos caminhos
+            const imagensComUrl = data.map(img => process.env.PUBLIC_URL + '/' + img.replace(/^\//, ''));
+            setImagens(imagensComUrl);
             return;
           }
         }
@@ -34,9 +34,9 @@ function Hero({ abrirModal }) {
       await Promise.all(
         padroes.map(async (nome) => {
           try {
-            const r = await fetch(`/carousel/${nome}`);
+            const r = await fetch(process.env.PUBLIC_URL + `/carousel/${nome}`);
             if (r.ok) {
-              existentes.push(`/carousel/${nome}`);
+              existentes.push(process.env.PUBLIC_URL + `/carousel/${nome}`);
             }
           } catch (e) {
             // ignora
@@ -57,14 +57,13 @@ function Hero({ abrirModal }) {
       id="inicio"
       className="relative text-white py-20 overflow-hidden scroll-mt-24"
     >
-      {/* Se houver imagens, mostra carrossel; senão, fundo azul liso como antes */}
       {temCarrossel ? (
         <div className="absolute inset-0">
           <Swiper
             modules={[Autoplay, Pagination, Navigation, EffectFade]}
             slidesPerView={1}
             loop
-            effect="coverflow"
+            effect="fade"
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             navigation
@@ -86,10 +85,8 @@ function Hero({ abrirModal }) {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-500" />
       )}
 
-      {/* Overlay azul semi-transparente para manter legibilidade */}
       <div className="absolute inset-0 bg-blue-700 bg-opacity-70"></div>
 
-      {/* Conteúdo original mantido */}
       <div className="container mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
           Bem-vindo à ARCAM
