@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Website-Arcam/static/css/main.8edfbe65.css",
-    "main.js": "/Website-Arcam/static/js/main.83a2238d.js",
+    "main.css": "/Website-Arcam/static/css/main.11f7b92b.css",
+    "main.js": "/Website-Arcam/static/js/main.10e0aff9.js",
     "index.html": "/Website-Arcam/index.html",
-    "main.8edfbe65.css.map": "/Website-Arcam/static/css/main.8edfbe65.css.map",
-    "main.83a2238d.js.map": "/Website-Arcam/static/js/main.83a2238d.js.map"
+    "main.11f7b92b.css.map": "/Website-Arcam/static/css/main.11f7b92b.css.map",
+    "main.10e0aff9.js.map": "/Website-Arcam/static/js/main.10e0aff9.js.map"
   },
   "entrypoints": [
-    "static/css/main.8edfbe65.css",
-    "static/js/main.83a2238d.js"
+    "static/css/main.11f7b92b.css",
+    "static/js/main.10e0aff9.js"
   ]
 }
