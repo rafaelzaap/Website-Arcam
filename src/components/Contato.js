@@ -22,7 +22,7 @@ function Contato({ abrirModal }) {
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 mb-2">Email</h3>
-                <p className="text-gray-600">contato@arcam.org.br</p>
+                <p className="text-gray-600">arcam.py1arm@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
@@ -31,7 +31,7 @@ function Contato({ abrirModal }) {
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 mb-2">Frequência</h3>
-                <p className="text-gray-600">Repetidora: 147.000 MHz</p>
+                <p className="text-gray-600">Repetidora: 146.970 MHz SubTom: 88.5</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
@@ -40,7 +40,7 @@ function Contato({ abrirModal }) {
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 mb-2">Reuniões</h3>
-                <p className="text-gray-600">Toda primeira sexta do mês</p>
+                <p className="text-gray-600">Todos os meses na praça do Trevo do Índio </p>
               </div>
             </div>
           </div>
