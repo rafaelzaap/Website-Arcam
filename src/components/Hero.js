@@ -9,8 +9,6 @@ import 'swiper/css/effect-fade';
 
 function Hero({ abrirModal }) {
   const [imagens, setImagens] = useState([]);
-  const versionarImagemAtualizada = (url) =>
-    url.includes('foto3.jpg') && !url.includes('?') ? `${url}?v=20260818` : url;
 
   useEffect(() => {
     const carregarImagens = async () => {
@@ -20,9 +18,7 @@ function Hero({ abrirModal }) {
           const data = await resp.json();
           if (Array.isArray(data) && data.length > 0) {
             // Adiciona PUBLIC_URL aos caminhos
-            const imagensComUrl = data.map(img =>
-              versionarImagemAtualizada(process.env.PUBLIC_URL + '/' + img.replace(/^\//, ''))
-            );
+            const imagensComUrl = data.map(img => process.env.PUBLIC_URL + '/' + img.replace(/^\//, ''));
             setImagens(imagensComUrl);
             return;
           }
@@ -40,7 +36,7 @@ function Hero({ abrirModal }) {
           try {
             const r = await fetch(process.env.PUBLIC_URL + `/carousel/${nome}`);
             if (r.ok) {
-              existentes.push(versionarImagemAtualizada(process.env.PUBLIC_URL + `/carousel/${nome}`));
+              existentes.push(process.env.PUBLIC_URL + `/carousel/${nome}`);
             }
           } catch (e) {
             // ignora
