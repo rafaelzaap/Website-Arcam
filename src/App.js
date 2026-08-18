@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Sobre from './components/Sobre';
@@ -9,6 +9,20 @@ import ModalAssociacao from './components/ModalAssociacao';
 
 function App() {
   const [modalAberto, setModalAberto] = useState(false);
+
+  useEffect(() => {
+    const audio = new Audio(`${process.env.PUBLIC_URL}/PY1ARM_MORSE.wav`);
+    audio.preload = 'auto';
+
+    audio.play().catch(() => {
+      // Os navegadores podem bloquear áudio automático sem interação do visitante.
+    });
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   const abrirModal = () => setModalAberto(true);
   const fecharModal = () => setModalAberto(false);
