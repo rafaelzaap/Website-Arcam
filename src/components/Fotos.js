@@ -23,18 +23,14 @@ function Fotos() {
   }, []);
 
   useEffect(() => {
-    if (fotos.length <= 6) return undefined;
+    if (fotos.length <= 1) return undefined;
 
     const intervalo = setInterval(() => {
-      setIndiceAtual((indice) => (indice + 6) % fotos.length);
+      setIndiceAtual((indice) => (indice + 1) % fotos.length);
     }, 3000);
 
     return () => clearInterval(intervalo);
   }, [fotos.length]);
-
-  const fotosVisiveis = Array.from({ length: Math.min(6, fotos.length) }, (_, deslocamento) => (
-    fotos[(indiceAtual + deslocamento) % fotos.length]
-  ));
 
   return (
     <div className="fotos-galeria" aria-label="Galeria de fotos históricas da ARCAM">
@@ -46,15 +42,12 @@ function Fotos() {
       {fotos.length > 0 ? (
         <div className="fotos-galeria-janela">
           <div className="fotos-galeria-trilho" key={indiceAtual}>
-            {fotosVisiveis.map((foto, indice) => (
-              <img
-                key={`${foto}-${indice}`}
-                src={`${process.env.PUBLIC_URL}${foto}`}
-                alt="Registro histórico da ARCAM"
-                loading="lazy"
-                decoding="async"
-              />
-            ))}
+            <img
+              src={`${process.env.PUBLIC_URL}${fotos[indiceAtual]}`}
+              alt="Registro histórico da ARCAM"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       ) : (
