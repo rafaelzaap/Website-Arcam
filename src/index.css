@@ -20,6 +20,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (min-width: 1536px) {
+  .hero-secao {
+    min-height: clamp(28rem, 25vw, 36rem);
+  }
+}
+
 .fotos-galeria {
   min-width: 0;
   overflow: hidden;

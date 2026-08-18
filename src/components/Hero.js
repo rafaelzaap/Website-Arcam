@@ -55,7 +55,7 @@ function Hero({ abrirModal }) {
   return (
     <section
       id="inicio"
-      className="relative text-white py-20 overflow-hidden scroll-mt-24"
+      className="hero-secao relative flex items-center justify-center text-white py-20 overflow-hidden scroll-mt-24"
     >
       {temCarrossel ? (
         <div className="absolute inset-0">
