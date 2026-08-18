@@ -75,6 +75,7 @@ function Hero({ abrirModal }) {
                   className="w-full h-full bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${src})`,
+                    backgroundPosition: 'center 28%',
                   }}
                 />
               </SwiperSlide>
