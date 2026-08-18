@@ -19,3 +19,95 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.fotos-galeria {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #dbeafe;
+  border-radius: 0.75rem;
+  background: #eff6ff;
+  padding: 1rem;
+}
+
+.fotos-galeria-cabecalho {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.fotos-galeria-cabecalho span {
+  color: #64748b;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.fotos-galeria-janela {
+  height: clamp(20rem, 34vw, 31rem);
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #dbeafe;
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+
+.fotos-galeria-trilho {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  animation: fotos-aparecer 0.5s ease;
+}
+
+.fotos-galeria-trilho img {
+  min-height: 0;
+  width: 100%;
+  border-radius: 0.35rem;
+  object-fit: cover;
+  background: #bfdbfe;
+}
+
+.fotos-galeria-vazia {
+  min-height: 20rem;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  color: #475569;
+  text-align: center;
+}
+
+@keyframes fotos-aparecer {
+  from { opacity: 0.15; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 1535px) {
+  .fotos-galeria-trilho {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .fotos-galeria {
+    padding: 0.75rem;
+  }
+
+  .fotos-galeria-janela,
+  .fotos-galeria-vazia {
+    height: 18rem;
+    min-height: 18rem;
+  }
+
+  .fotos-galeria-trilho {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fotos-galeria-trilho {
+    animation: none;
+  }
+}

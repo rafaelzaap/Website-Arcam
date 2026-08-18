@@ -1,23 +1,28 @@
-const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
-const carouselDirectory = path.resolve(__dirname, '..', 'public', 'carousel');
-const configPath = path.join(carouselDirectory, 'config.json');
 const supportedExtensions = new Set(['.gif', '.jpeg', '.jpg', '.png', '.webp']);
 
-const imagePaths = fs.readdirSync(carouselDirectory)
-  .filter((fileName) => supportedExtensions.has(path.extname(fileName).toLowerCase()))
-  .sort((first, second) => first.localeCompare(second, 'en'))
-  .map((fileName) => {
-    const filePath = path.join(carouselDirectory, fileName);
-    const version = crypto.createHash('sha256')
-      .update(fs.readFileSync(filePath))
-      .digest('hex')
-      .slice(0, 12);
+function generateConfig(folderName) {
+  const imageDirectory = path.resolve(__dirname, '..', 'public', folderName);
+  const configPath = path.join(imageDirectory, 'config.json');
 
-    return `/carousel/${fileName}?v=${version}`;
-  });
+  fs.mkdirSync(imageDirectory, { recursive: true });
 
-fs.writeFileSync(configPath, `${JSON.stringify(imagePaths, null, 2)}\n`);
-console.log(`Carrossel atualizado: ${imagePaths.length} imagem(ns) encontrada(s).`);
+  const imagePaths = fs.readdirSync(imageDirectory)
+    .filter((fileName) => supportedExtensions.has(path.extname(fileName).toLowerCase()))
+    .sort((first, second) => first.localeCompare(second, 'en'))
+    .map((fileName) => {
+      const filePath = path.join(imageDirectory, fileName);
+      const fileStats = fs.statSync(filePath);
+      const version = `${Math.round(fileStats.mtimeMs)}-${fileStats.size}`;
+
+      return `/${folderName}/${encodeURIComponent(fileName)}?v=${version}`;
+    });
+
+  fs.writeFileSync(configPath, `${JSON.stringify(imagePaths, null, 2)}\n`);
+  console.log(`${folderName}: ${imagePaths.length} imagem(ns) encontrada(s).`);
+}
+
+generateConfig('carousel');
+generateConfig('fotos');

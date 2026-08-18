@@ -1,11 +1,12 @@
 import React from 'react';
+import Fotos from './Fotos';
 
 function Sobre() {
   return (
     <section id="sobre" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">Sobre a ARCAM</h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid gap-8 items-center lg:grid-cols-2 2xl:grid-cols-3">
           <div>
             <p className="text-gray-700 mb-4">
               A Associação de Rádio Amador de Campos dos Goytacazes (ARCAM) é uma entidade dedicada 
@@ -41,6 +42,7 @@ function Sobre() {
               </li>
             </ul>
           </div>
+          <Fotos />
         </div>
       </div>
     </section>
