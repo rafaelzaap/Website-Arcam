@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Evento from './components/Evento';
 import Sobre from './components/Sobre';
 import Atividades from './components/Atividades';
 import Contato from './components/Contato';
@@ -31,6 +32,7 @@ function App() {
     <div className="min-h-screen bg-gray-50 pt-24">
       <Header />
       <Hero abrirModal={abrirModal} />
+      <Evento />
       <Sobre />
       <Atividades />
       <Contato abrirModal={abrirModal} />

@@ -26,6 +26,118 @@ html {
   }
 }
 
+.evento-destaque {
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 58%, #facc15 100%);
+}
+
+.evento-destaque-conteudo {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 1.25rem;
+  color: white;
+  background: rgba(15, 23, 42, 0.28);
+  box-shadow: 0 1.25rem 2.5rem rgba(15, 23, 42, 0.2);
+  text-align: center;
+}
+
+.evento-destaque-selo {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  color: #1e3a8a;
+  background: #facc15;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.evento-destaque h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.evento-destaque-subtitulo {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.evento-destaque-detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  margin: 1.5rem 0;
+  font-weight: 700;
+}
+
+.evento-destaque-detalhes span:not(:last-child)::after {
+  content: '•';
+  margin-left: 1.5rem;
+  color: #facc15;
+}
+
+.evento-destaque-texto {
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.evento-destaque-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.evento-destaque-rodape strong {
+  color: #fef08a;
+}
+
+.evento-destaque-rodape a {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  color: #1e3a8a;
+  background: #facc15;
+  font-weight: 800;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.evento-destaque-rodape a:hover {
+  background: #fde047;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 639px) {
+  .evento-destaque {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .evento-destaque-conteudo {
+    padding: 1.75rem 1rem;
+  }
+
+  .evento-destaque-detalhes {
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .evento-destaque-detalhes span:not(:last-child)::after {
+    content: '';
+    margin: 0;
+  }
+}
+
 .fotos-galeria {
   min-width: 0;
   overflow: hidden;
