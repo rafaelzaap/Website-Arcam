@@ -4,7 +4,7 @@ import Fotos from './Fotos';
 function Sobre() {
   return (
     <section id="sobre" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="w-full max-w-[2200px] mx-auto px-4 2xl:px-10">
         <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">Sobre a ARCAM</h2>
         <div className="grid gap-8 items-center lg:grid-cols-2 2xl:grid-cols-3">
           <div>
