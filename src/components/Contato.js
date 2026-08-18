@@ -2,12 +2,15 @@ import React from 'react';
 
 function Contato({ abrirModal }) {
   return (
-    <section id="contato" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Entre em Contato</h2>
-        <div className="max-w-2xl mx-auto">
+    <section id="contato" className="contact-section py-20 bg-white">
+      <div className="site-shell px-5">
+        <div className="section-heading centered">
+          <span className="eyebrow">Fale com a gente</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-950">Seu próximo contato começa aqui</h2>
+        </div>
+        <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="flex items-start space-x-4">
+            <div className="contact-item flex items-start space-x-4">
               <div className="text-yellow-600 text-2xl">
                 <i className="fas fa-map-marker-alt"></i>
               </div>
@@ -16,7 +19,7 @@ function Contato({ abrirModal }) {
                 <p className="text-gray-600">Campos dos Goytacazes - RJ</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
+            <div className="contact-item flex items-start space-x-4">
               <div className="text-yellow-600 text-2xl">
                 <i className="fas fa-envelope"></i>
               </div>
@@ -25,7 +28,7 @@ function Contato({ abrirModal }) {
                 <p className="text-gray-600">arcam.py1arm@gmail.com</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
+            <div className="contact-item flex items-start space-x-4">
               <div className="text-yellow-600 text-2xl">
                 <i className="fas fa-radio"></i>
               </div>
@@ -34,7 +37,7 @@ function Contato({ abrirModal }) {
                 <p className="text-gray-600">Repetidora: 146.970 MHz SubTom: 88.5</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
+            <div className="contact-item flex items-start space-x-4">
               <div className="text-yellow-600 text-2xl">
                 <i className="fas fa-clock"></i>
               </div>
@@ -44,7 +47,7 @@ function Contato({ abrirModal }) {
               </div>
             </div>
           </div>
-          <div className="bg-yellow-50 p-8 rounded-lg text-center">
+          <div className="contact-cta bg-yellow-50 p-8 rounded-lg text-center">
             <h3 className="text-xl font-bold text-blue-800 mb-4">Quer se tornar um radioamador?</h3>
             <p className="text-gray-700 mb-6">
               Entre em contato conosco para saber mais sobre como obter sua licença e fazer parte

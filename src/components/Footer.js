@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-blue-800 text-yellow-300 py-8">
-      <div className="container mx-auto px-4 text-center">
+    <footer className="site-footer bg-blue-800 text-yellow-300 py-10">
+      <div className="site-shell px-5 text-center">
         <div className="flex justify-center space-x-6 mb-4">
           <a href="#" className="hover:text-yellow-100 transition">
             <i className="fab fa-facebook text-2xl"></i>
@@ -16,7 +16,7 @@ function Footer() {
           </a>
         </div>
         <p className="text-yellow-100">
-          © 2024 ARCAM - Associação dos Radioamadores de Campos dos Goytacazes
+          © {new Date().getFullYear()} ARCAM - Associação dos Radioamadores de Campos dos Goytacazes
         </p>
         <p className="text-yellow-300 text-sm mt-2">
           73! - Saudações Radioamadorísticas

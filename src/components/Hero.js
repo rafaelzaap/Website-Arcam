@@ -55,7 +55,7 @@ function Hero({ abrirModal }) {
   return (
     <section
       id="inicio"
-      className="hero-secao relative flex items-center justify-center text-white py-20 overflow-hidden scroll-mt-24"
+      className="hero-secao relative flex items-center justify-center text-white overflow-hidden scroll-mt-24"
     >
       {temCarrossel ? (
         <div className="absolute inset-0">
@@ -86,22 +86,22 @@ function Hero({ abrirModal }) {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-500" />
       )}
 
-      <div className="absolute inset-0 bg-blue-700 bg-opacity-70"></div>
+      <div className="hero-overlay absolute inset-0"></div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+      <div className="hero-content container mx-auto px-5 text-center relative z-10">
+        <span className="hero-kicker">Desde 1981 · Campos dos Goytacazes</span>
+        <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
           Bem-vindo à ARCAM
         </h2>
-        <p className="text-xl mb-8 drop-shadow-md">
+        <p className="hero-subtitle text-xl mb-8 drop-shadow-md">
           Conectando radioamadores em Campos dos Goytacazes
         </p>
-        <button
-          onClick={abrirModal}
-          className="bg-yellow-400 text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition shadow-lg hover:shadow-xl transform hover:scale-105"
-        >
-          Associe-se
-        </button>
+        <div className="flex flex-col sm:flex-row justify-center gap-3">
+          <button onClick={abrirModal} className="button-primary">Quero fazer parte</button>
+          <a href="#sobre" className="button-secondary">Conheça a ARCAM <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
+      <div className="hero-scroll-hint absolute bottom-6 left-1/2 -translate-x-1/2">Role para explorar <span>↓</span></div>
     </section>
   );
 }

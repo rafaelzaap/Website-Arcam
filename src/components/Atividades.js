@@ -35,12 +35,16 @@ function Atividades() {
   ];
 
   return (
-    <section id="atividades" className="py-16 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Nossas Atividades</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+    <section id="atividades" className="activities-section py-20 bg-gray-100">
+      <div className="site-shell px-5">
+        <div className="section-heading centered">
+          <span className="eyebrow">O que fazemos</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-950">Muito além do rádio</h2>
+          <p>Descubra as formas de participar, aprender e contribuir.</p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {atividades.map((atividade, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+            <div key={index} className="activity-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
               <div className="text-yellow-600 text-4xl mb-4">
                 <i className={`fas ${atividade.icon}`}></i>
               </div>

@@ -3,11 +3,15 @@ import Fotos from './Fotos';
 
 function Sobre() {
   return (
-    <section id="sobre" className="py-16 bg-white">
-      <div className="w-full max-w-[2200px] mx-auto px-4 2xl:px-10">
-        <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">Sobre a ARCAM</h2>
-        <div className="grid gap-8 items-center lg:grid-cols-2 2xl:grid-cols-3">
-          <div>
+    <section id="sobre" className="section-light py-20 bg-white">
+      <div className="site-shell px-5">
+        <div className="section-heading">
+          <span className="eyebrow">Nossa história</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-950">Uma comunidade que <em>conecta</em></h2>
+          <p>Conhecimento, amizade e comunicação a serviço da nossa região.</p>
+        </div>
+        <div className="grid gap-8 items-center lg:grid-cols-[1fr_0.8fr_1.1fr]">
+          <div className="about-copy">
             <p className="text-gray-700 mb-4">
               A Associação dos Radioamadores de Campos dos Goytacazes (ARCAM) é uma entidade dedicada
               a promover e desenvolver o radioamadorismo na região.
@@ -21,7 +25,7 @@ function Sobre() {
               através do radioamadorismo.
             </p>
           </div>
-          <div className="bg-yellow-50 p-8 rounded-lg">
+          <div className="values-card bg-yellow-50 p-8 rounded-lg">
             <h3 className="text-xl font-bold text-blue-800 mb-4">Nossos Valores</h3>
             <ul className="space-y-3">
               <li className="flex items-start">

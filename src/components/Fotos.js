@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 function Fotos() {
   const [fotos, setFotos] = useState([]);
   const [indiceAtual, setIndiceAtual] = useState(0);
+  const [fotoAberta, setFotoAberta] = useState(false);
 
   useEffect(() => {
     const carregarFotos = async () => {
@@ -40,7 +41,7 @@ function Fotos() {
       </div>
 
       {fotos.length > 0 ? (
-        <div className="fotos-galeria-janela">
+        <button type="button" className="fotos-galeria-janela" onClick={() => setFotoAberta(true)} aria-label="Ampliar foto da galeria">
           <div className="fotos-galeria-trilho" key={indiceAtual}>
             <img
               src={`${process.env.PUBLIC_URL}${fotos[indiceAtual]}`}
@@ -49,11 +50,18 @@ function Fotos() {
               decoding="async"
             />
           </div>
-        </div>
+        </button>
       ) : (
         <p className="fotos-galeria-vazia">
           Adicione as fotos históricas em <code>public/fotos</code> para exibi-las aqui.
         </p>
+      )}
+
+      {fotoAberta && (
+        <div className="foto-lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" onClick={() => setFotoAberta(false)}>
+          <button type="button" className="foto-lightbox-fechar" onClick={() => setFotoAberta(false)} aria-label="Fechar foto">×</button>
+          <img src={`${process.env.PUBLIC_URL}${fotos[indiceAtual]}`} alt="Registro histórico ampliado da ARCAM" onClick={(evento) => evento.stopPropagation()} />
+        </div>
       )}
     </div>
   );
