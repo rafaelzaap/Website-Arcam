@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -60,18 +60,10 @@ function Hero({ abrirModal }) {
       {temCarrossel ? (
         <div className="absolute inset-0">
           <Swiper
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Pagination, Navigation, EffectFade]}
             slidesPerView={1}
             loop
-            spaceBetween={8}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-              },
-              1280: {
-                slidesPerView: 3,
-              },
-            }}
+            effect="fade"
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             navigation
@@ -80,7 +72,7 @@ function Hero({ abrirModal }) {
             {imagens.map((src, idx) => (
               <SwiperSlide key={idx}>
                 <div
-                  className="w-full h-full bg-contain bg-center bg-no-repeat bg-blue-900/30"
+                  className="w-full h-full bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${src})`,
                   }}
