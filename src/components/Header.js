@@ -15,7 +15,7 @@ function Header() {
             />
             <div>
               <h1 className="text-2xl font-bold">ARCAM</h1>
-              <p className="text-sm text-yellow-100">Associação de Rádio Amador de Campos dos Goytacazes</p>
+              <p className="text-sm text-yellow-100">Associação dos Radioamadores de Campos dos Goytacazes</p>
             </div>
           </div>
           <button 

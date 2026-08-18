@@ -16,7 +16,7 @@ function Footer() {
           </a>
         </div>
         <p className="text-yellow-100">
-          © 2024 ARCAM - Associação de Rádio Amador de Campos dos Goytacazes
+          © 2024 ARCAM - Associação dos Radioamadores de Campos dos Goytacazes
         </p>
         <p className="text-yellow-300 text-sm mt-2">
           73! - Saudações Radioamadorísticas
