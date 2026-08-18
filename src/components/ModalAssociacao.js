@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 function ModalAssociacao({ aberto, fechar }) {
   const [formData, setFormData] = useState({
@@ -28,15 +27,27 @@ function ModalAssociacao({ aberto, fechar }) {
     setErroEnvio(false);
     setEnviando(true);
 
-    // Credenciais do EmailJS
-    const serviceId = 'service_9h8pfbo';
-    const templateId = 'template_uem8l6o';
-    const publicKey = 'JWsuTyZFW1lm-AeYh';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: 'e0f68ba2-e7bb-402c-935a-a1c11ebd93ff',
+        ...formData,
+        subject: 'Novo pedido de filiação à ARCAM',
+        from_name: 'Site ARCAM',
+        botcheck: ''
+      })
+    })
+      .then(async (response) => {
+        const result = await response.json().catch(() => null);
+        if (!response.ok || !result?.success) {
+          throw new Error(result?.message || `HTTP ${response.status}`);
+        }
 
-    // Enviar email usando EmailJS
-    emailjs.send(serviceId, templateId, formData, publicKey)
-      .then((response) => {
-        console.log('Email enviado com sucesso!', response.status, response.text);
+        console.log('Solicitação enviada com sucesso!', result.message);
         setEnviando(false);
         setEnviado(true);
 
