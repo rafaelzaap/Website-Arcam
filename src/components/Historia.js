@@ -22,7 +22,6 @@ function Historia() {
         <div className="section-heading">
           <span className="eyebrow">Uma história em movimento</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white">De onde viemos e para onde vamos</h2>
-          <p className="history-intro">Uma experiência de conteúdo progressivo, inspirada em portfólios que deixam o visitante escolher o próximo passo.</p>
         </div>
 
         <div className="history-tabs" role="tablist" aria-label="Informações sobre a ARCAM">
