@@ -247,7 +247,7 @@ html {
 }
 
 .fotos-galeria-janela {
-  height: clamp(20rem, 34vw, 31rem);
+  height: clamp(23rem, 38vw, 36rem);
   overflow: hidden;
   border-radius: 0.5rem;
   background: #dbeafe;
@@ -264,7 +264,7 @@ html {
   width: 100%;
   height: 100%;
   border-radius: 0.35rem;
-  object-fit: contain;
+  object-fit: cover;
   background: #bfdbfe;
 }
 

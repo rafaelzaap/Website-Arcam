@@ -10,7 +10,7 @@ function Sobre() {
           <h2 className="text-3xl md:text-4xl font-bold text-blue-950">Uma comunidade que <em>conecta</em></h2>
           <p>Conhecimento, amizade e comunicação a serviço da nossa região.</p>
         </div>
-        <div className="grid gap-8 items-center lg:grid-cols-[1fr_0.8fr_1.1fr]">
+        <div className="grid gap-8 items-center lg:grid-cols-[1fr_0.8fr_1.45fr]">
           <div className="about-copy">
             <p className="text-gray-700 mb-4">
               A Associação dos Radioamadores de Campos dos Goytacazes (ARCAM) é uma entidade dedicada
