@@ -62,8 +62,7 @@ function ModalEvento({ aberto, fechar }) {
         </div>
 
         <p id="evento-modal-descricao" className="evento-modal-descricao">
-          Faça aqui sua inscrição para o encontro anual. Esta inscrição é exclusiva para o evento,
-          não para associação à ARCAM.
+          Faça aqui sua inscrição para o encontro anual. Esta inscrição é exclusiva para o evento.
         </p>
 
         <a
