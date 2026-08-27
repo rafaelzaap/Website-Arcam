@@ -18,11 +18,17 @@ function App() {
     const audio = new Audio(`${process.env.PUBLIC_URL}/PY1ARM_MORSE.wav`);
     audio.preload = 'auto';
 
-    audio.play().catch(() => {
-      // Os navegadores podem bloquear áudio automático sem interação do visitante.
-    });
+    const tocarMorse = () => {
+      audio.currentTime = 0;
+      audio.play().catch(() => {
+        // Mantém a navegação normal caso o dispositivo não consiga reproduzir o arquivo.
+      });
+    };
+
+    document.addEventListener('click', tocarMorse, { capture: true, once: true });
 
     return () => {
+      document.removeEventListener('click', tocarMorse, true);
       audio.pause();
       audio.currentTime = 0;
     };
