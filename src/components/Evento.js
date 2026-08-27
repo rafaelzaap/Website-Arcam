@@ -1,6 +1,6 @@
 import React from 'react';
 
-const linkInscricao = 'https://tally.so/r/yP52b6';
+export const linkInscricao = 'https://tally.so/r/yP52b6';
 
 function Evento() {
   return (

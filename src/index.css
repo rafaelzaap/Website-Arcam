@@ -52,8 +52,22 @@ html {
 .button-primary, .button-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 3.2rem; padding: .85rem 1.5rem; border-radius: 999px; font-weight: 800; transition: transform .2s ease, background .2s ease, color .2s ease; }
 .button-primary { background: var(--yellow); color: #102a63; box-shadow: 0 10px 25px rgba(4, 15, 38, .28); }
 .button-primary:hover { background: #ffdb52; transform: translateY(-2px); }
+.button-primary:disabled {
+  color: #64748b;
+  background: #d7dce5;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: .82;
+  transform: none;
+}
 .button-secondary { gap: .6rem; border: 1px solid rgba(255,255,255,.48); color: white; }
 .button-secondary:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+.hero-associacao-aviso {
+  margin-top: .75rem;
+  color: #f8fafc;
+  font-size: .78rem;
+  font-weight: 700;
+}
 .hero-scroll-hint { color: rgba(255,255,255,.7); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
 .hero-scroll-hint span { display: block; margin-top: .35rem; text-align: center; color: var(--yellow); font-size: 1.2rem; }
 
@@ -200,6 +214,154 @@ html {
 .evento-destaque-rodape a:hover {
   background: #fde047;
   transform: translateY(-2px);
+}
+
+.evento-modal-fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(3, 12, 32, .82);
+  backdrop-filter: blur(5px);
+}
+
+.evento-modal {
+  position: relative;
+  width: min(100%, 40rem);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  padding: 2.75rem 2.5rem 2.25rem;
+  border: 2px solid rgba(250, 204, 21, .8);
+  border-radius: 1.5rem;
+  color: white;
+  background: linear-gradient(145deg, #102a63 0%, #1649a1 68%, #1d4ed8 100%);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, .5);
+  text-align: center;
+}
+
+.evento-modal-fechar {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  color: white;
+  background: rgba(255, 255, 255, .12);
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.evento-modal-fechar:hover,
+.evento-modal-fechar:focus-visible {
+  background: rgba(255, 255, 255, .24);
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+.evento-modal-selo {
+  display: inline-block;
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  color: #102a63;
+  background: #facc15;
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.evento-modal-chamada {
+  margin-top: 1.1rem;
+  color: #fde68a;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.evento-modal h2 {
+  margin-top: .35rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+
+.evento-modal-local {
+  margin-top: .65rem;
+  color: #dbeafe;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.evento-modal-detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 1.2rem;
+  margin: 1.4rem 0;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 1rem;
+  background: rgba(4, 17, 45, .22);
+}
+
+.evento-modal-descricao {
+  max-width: 32rem;
+  margin: 0 auto;
+  color: #eef4ff;
+  line-height: 1.6;
+}
+
+.evento-modal-inscricao,
+.evento-modal-continuar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 24rem);
+  min-height: 3.25rem;
+  margin: 1.5rem auto 0;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.evento-modal-inscricao {
+  color: #102a63;
+  background: #facc15;
+  box-shadow: 0 .75rem 1.8rem rgba(4, 15, 38, .3);
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.evento-modal-inscricao:hover,
+.evento-modal-inscricao:focus-visible {
+  background: #fde047;
+  transform: translateY(-2px);
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.evento-modal-continuar {
+  min-height: auto;
+  margin-top: .8rem;
+  color: #e0e7ff;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .2rem;
+}
+
+@media (max-width: 639px) {
+  .evento-modal {
+    padding: 2.5rem 1.15rem 1.75rem;
+    border-radius: 1.1rem;
+  }
+
+  .evento-modal-detalhes {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 639px) {

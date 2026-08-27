@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 
-function Hero({ abrirModal }) {
+function Hero() {
   const [imagens, setImagens] = useState([]);
 
   useEffect(() => {
@@ -97,9 +97,19 @@ function Hero({ abrirModal }) {
           Conectando radioamadores em Campos dos Goytacazes
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-3">
-          <button onClick={abrirModal} className="button-primary">Quero fazer parte</button>
+          <button
+            type="button"
+            className="button-primary"
+            disabled
+            aria-describedby="associacao-indisponivel"
+          >
+            Quero fazer parte
+          </button>
           <a href="#sobre" className="button-secondary">Conheça a ARCAM <span aria-hidden="true">↓</span></a>
         </div>
+        <p id="associacao-indisponivel" className="hero-associacao-aviso">
+          Associação temporariamente indisponível
+        </p>
       </div>
       <div className="hero-scroll-hint absolute bottom-6 left-1/2 -translate-x-1/2">Role para explorar <span>↓</span></div>
     </section>
