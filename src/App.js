@@ -10,9 +10,24 @@ import Footer from './components/Footer';
 import ModalAssociacao from './components/ModalAssociacao';
 import ModalEvento from './components/ModalEvento';
 
+const BLACK_FRIDAY_INICIO = new Date(2026, 10, 27, 0, 0, 0, 0);
+const BLACK_FRIDAY_FIM = new Date(2026, 10, 28, 0, 0, 0, 0);
+
+function blackFridayEstaAtiva(agora = new Date()) {
+  return agora >= BLACK_FRIDAY_INICIO && agora < BLACK_FRIDAY_FIM;
+}
+
 function App() {
   const [modalAberto, setModalAberto] = useState(false);
   const [modalEventoAberto, setModalEventoAberto] = useState(true);
+  const [blackFridayAtiva, setBlackFridayAtiva] = useState(() => blackFridayEstaAtiva());
+
+  useEffect(() => {
+    const atualizarBlackFriday = () => setBlackFridayAtiva(blackFridayEstaAtiva());
+    const intervalo = window.setInterval(atualizarBlackFriday, 1000);
+
+    return () => window.clearInterval(intervalo);
+  }, []);
 
   useEffect(() => {
     const audio = new Audio(`${process.env.PUBLIC_URL}/PY1ARM_MORSE.wav`);
@@ -49,7 +64,11 @@ function App() {
       <Contato abrirModal={abrirModal} />
       <Footer />
       <ModalAssociacao aberto={modalAberto} fechar={fecharModal} />
-      <ModalEvento aberto={modalEventoAberto} fechar={fecharModalEvento} />
+      <ModalEvento
+        aberto={modalEventoAberto}
+        fechar={fecharModalEvento}
+        blackFridayAtiva={blackFridayAtiva}
+      />
     </div>
   );
 }
