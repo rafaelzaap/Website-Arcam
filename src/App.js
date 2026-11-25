@@ -20,14 +20,19 @@ function blackFridayEstaAtiva(agora = new Date()) {
 function App() {
   const [modalAberto, setModalAberto] = useState(false);
   const [modalEventoAberto, setModalEventoAberto] = useState(true);
-  const [blackFridayAtiva, setBlackFridayAtiva] = useState(() => blackFridayEstaAtiva());
+  const previewBlackFriday = new URLSearchParams(window.location.search).get('preview') === 'blackfriday';
+  const [blackFridayAtiva, setBlackFridayAtiva] = useState(() => (
+    previewBlackFriday || blackFridayEstaAtiva()
+  ));
 
   useEffect(() => {
+    if (previewBlackFriday) return undefined;
+
     const atualizarBlackFriday = () => setBlackFridayAtiva(blackFridayEstaAtiva());
     const intervalo = window.setInterval(atualizarBlackFriday, 1000);
 
     return () => window.clearInterval(intervalo);
-  }, []);
+  }, [previewBlackFriday]);
 
   useEffect(() => {
     const audio = new Audio(`${process.env.PUBLIC_URL}/PY1ARM_MORSE.wav`);
